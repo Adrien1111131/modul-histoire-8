@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Générateur d'Histoires Sensuelles</title>
+    <meta name="description" content="Générateur d'histoires érotiques personnalisées basé sur vos préférences sensorielles" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Montserrat:wght@300;500;600&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+      html, body {
+        overflow-y: auto !important;
+        height: auto !important;
+      }
+      #root, #root > div, #root > div > main {
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh;
+      }
+      .scrollable-page, .scrollable-content, .scrollable-card {
+        overflow: visible !important;
+        height: auto !important;
+      }
+    </style>
+  </head>
+  <body style="margin: 0; padding: 0; overflow: auto; background-color: black;">
+    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background-image: url('/fond1.png'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: -1;"></div>
+    <div id="root" style="position: relative; z-index: 1; height: auto; min-height: 100vh; overflow: visible;"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

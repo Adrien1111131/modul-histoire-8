@@ -1,0 +1,105 @@
+warning: in the working copy of 'src/components/CustomStoryResult.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/FreeFantasyResult.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/RandomStoryResult.jsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/components/CustomStoryResult.jsx b/src/components/CustomStoryResult.jsx[m
+[1mindex 205a5fd..6158ffc 100644[m
+[1m--- a/src/components/CustomStoryResult.jsx[m
+[1m+++ b/src/components/CustomStoryResult.jsx[m
+[36m@@ -189,6 +189,26 @@[m [mconst CustomStoryResult = () => {[m
+             </button>[m
+           </div>[m
+         </div>[m
+[32m+[m
+[32m+[m[32m        <div className="mt-4 text-center">[m
+[32m+[m[32m          <button[m
+[32m+[m[32m            onClick={() => {[m
+[32m+[m[32m              fetch('https://adrien31.app.n8n.cloud/webhook-test/c6101c94-785c-4eb3-a7e3-f01568125047', {[m
+[32m+[m[32m                method: 'POST',[m
+[32m+[m[32m                headers: {[m
+[32m+[m[32m                  'Content-Type': 'application/json',[m
+[32m+[m[32m                },[m
+[32m+[m[32m                body: JSON.stringify({ story }),[m
+[32m+[m[32m              })[m
+[32m+[m[32m              .then(response => response.json())[m
+[32m+[m[32m              .then(data => console.log('Success:', data))[m
+[32m+[m[32m              .catch(error => console.error('Error:', error));[m
+[32m+[m[32m            }}[m
+[32m+[m[32m            className="text-sm text-gray-500 hover:text-gray-700"[m
+[32m+[m[32m          >[m
+[32m+[m[32m            Envoyer à n8n[m
+[32m+[m[32m          </button>[m
+[32m+[m[32m        </div>[m
+       </div>[m
+     </div>[m
+   );[m
+[1mdiff --git a/src/components/FreeFantasyResult.jsx b/src/components/FreeFantasyResult.jsx[m
+[1mindex cbc8ad7..991c1fa 100644[m
+[1m--- a/src/components/FreeFantasyResult.jsx[m
+[1m+++ b/src/components/FreeFantasyResult.jsx[m
+[36m@@ -29,7 +29,7 @@[m [mconst FreeFantasyResult = () => {[m
+       setCopySuccess(false);[m
+       [m
+       // Récupérer le temps de lecture s'il existe dans l'état[m
+[31m-      const readingTime = location.state?.readingTime || 10;[m
+[32m+[m[32m      const readingTime = location.state?.readingTime || 10;[m[41m [m
+       [m
+       const generatedStory = await grokApi.generateFreeFantasyStory(fantasyText, existingProfile, readingTime);[m
+       setStory(generatedStory);[m
+[36m@@ -173,6 +173,26 @@[m [mconst FreeFantasyResult = () => {[m
+             </button>[m
+           </div>[m
+         </div>[m
+[32m+[m
+[32m+[m[32m        <div className="mt-4 text-center">[m
+[32m+[m[32m          <button[m
+[32m+[m[32m            onClick={() => {[m
+[32m+[m[32m              fetch('https://adrien31.app.n8n.cloud/webhook-test/c6101c94-785c-4eb3-a7e3-f01568125047', {[m
+[32m+[m[32m                method: 'POST',[m
+[32m+[m[32m                headers: {[m
+[32m+[m[32m                  'Content-Type': 'application/json',[m
+[32m+[m[32m                },[m
+[32m+[m[32m                body: JSON.stringify({ story }),[m
+[32m+[m[32m              })[m
+[32m+[m[32m              .then(response => response.json())[m
+[32m+[m[32m              .then(data => console.log('Success:', data))[m
+[32m+[m[32m              .catch(error => console.error('Error:', error));[m
+[32m+[m[32m            }}[m
+[32m+[m[32m            className="text-sm text-gray-500 hover:text-gray-700"[m
+[32m+[m[32m          >[m
+[32m+[m[32m            Envoyer à n8n[m
+[32m+[m[32m          </button>[m
+[32m+[m[32m        </div>[m
+       </div>[m
+     </div>[m
+   );[m
+[1mdiff --git a/src/components/RandomStoryResult.jsx b/src/components/RandomStoryResult.jsx[m
+[1mindex d264ffe..4a753d8 100644[m
+[1m--- a/src/components/RandomStoryResult.jsx[m
+[1m+++ b/src/components/RandomStoryResult.jsx[m
+[36m@@ -172,6 +172,26 @@[m [mconst RandomStoryResult = ({ randomStoryData }) => {[m
+             </button>[m
+           </div>[m
+         </div>[m
+[32m+[m
+[32m+[m[32m        <div className="mt-4 text-center">[m
+[32m+[m[32m          <button[m
+[32m+[m[32m            onClick={() => {[m
+[32m+[m[32m              fetch('https://adrien31.app.n8n.cloud/webhook-test/c6101c94-785c-4eb3-a7e3-f01568125047', {[m
+[32m+[m[32m                method: 'POST',[m
+[32m+[m[32m                headers: {[m
+[32m+[m[32m                  'Content-Type': 'application/json',[m
+[32m+[m[32m                },[m
+[32m+[m[32m                body: JSON.stringify({ story }),[m
+[32m+[m[32m              })[m
+[32m+[m[32m              .then(response => response.json())[m
+[32m+[m[32m              .then(data => console.log('Success:', data))[m
+[32m+[m[32m              .catch(error => console.error('Error:', error));[m
+[32m+[m[32m            }}[m
+[32m+[m[32m            className="text-sm text-gray-500 hover:text-gray-700"[m
+[32m+[m[32m          >[m
+[32m+[m[32m            Envoyer à n8n[m
+[32m+[m[32m          </button>[m
+[32m+[m[32m        </div>[m
+       </div>[m
+     </div>[m
+   )[m

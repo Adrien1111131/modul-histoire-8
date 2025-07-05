@@ -1,0 +1,235 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Classes pour les pages défilables */
+.scrollable-page {
+  height: auto !important;
+  min-height: 100%;
+  overflow-y: auto !important;
+  position: relative;
+}
+
+.scrollable-content {
+  padding: 2rem 0;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Classe pour les conteneurs de cartes */
+.scrollable-card {
+  height: auto !important;
+  overflow: visible !important;
+  margin: 1rem 0;
+}
+
+/* Styles pour les barres de défilement - rendues visibles mais élégantes */
+* {
+  -ms-overflow-style: auto;  /* IE and Edge */
+  scrollbar-width: thin;  /* Firefox */
+}
+
+/* Style de la barre de défilement pour Chrome, Safari et Opera */
+*::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  display: block !important;
+}
+
+/* Style du pouce de la barre de défilement */
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(208, 175, 142, 0.5);
+  border-radius: 3px;
+}
+
+/* Style du pouce de la barre de défilement au survol */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(208, 175, 142, 0.8);
+}
+
+/* Style de la piste de la barre de défilement */
+*::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/fond1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+.animate-fade-in-delayed {
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.screen-container {
+  position: relative;
+  min-height: 70vh;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.5s ease;
+}
+
+.screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.screen.visible {
+  opacity: 1;
+}
+
+.profile-button {
+  /* Couleur de fond avec dégradé doré/beige attrayant */
+  background: linear-gradient(135deg, #e0c29b 0%, #d5b394 50%, #c0a081 100%);
+  color: white; /* Texte blanc pour un contraste optimal */
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  
+  /* Dimensions et forme */
+  width: 240px;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+  
+  /* Effets visuels */
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(208, 175, 142, 0.3);
+  
+  /* Positionnement */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px auto;
+  position: relative;
+  z-index: 1;
+  
+  /* Effet de brillance */
+  overflow: hidden;
+}
+
+.profile-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.profile-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(208, 175, 142, 0.5);
+}
+
+.profile-button:hover::before {
+  left: 100%;
+}
+
+.profile-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(208, 175, 142, 0.3);
+}
+
+
+/* Amélioration du défilement fluide */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styles pour le défilement fluide */
+.scroll-container {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scroll-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
