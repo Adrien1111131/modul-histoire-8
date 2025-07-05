@@ -5,26 +5,6 @@ import predicats from '../data/predicats'
 import * as promptTemplates from './promptTemplates'
 import * as introTemplates from './introductionTemplates'
 
-const N8N_WEBHOOK_URL = 'https://adrien31.app.n8n.cloud/webhook/c6101c94-785c-4eb3-a7e3-f01568125047';
-
-/**
- * Envoie l'histoire générée au webhook n8n
- * @param {string} storyText - Texte de l'histoire
- */
-const sendStoryToN8n = async (storyText) => {
-  try {
-    await fetch(N8N_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ story: storyText }),
-    });
-  } catch (error) {
-    console.error('Erreur lors de l\'envoi au webhook n8n:', error);
-  }
-};
-
 /**
  * Nettoie le contenu de l'histoire en supprimant les annotations et analyses
  * @param {string} content - Contenu brut de l'histoire
@@ -139,12 +119,7 @@ export const generateStory = async (userProfile) => {
     }
 
     const data = await response.json();
-    const content = cleanStoryContent(data.choices[0].message.content);
-    
-    // Envoi automatique à n8n
-    sendStoryToN8n(content);
-
-    return content;
+    return cleanStoryContent(data.choices[0].message.content);
   } catch (error) {
     console.error('Erreur API:', error);
     throw error;
@@ -244,12 +219,7 @@ export const generateRandomStory = async (randomStoryData) => {
     }
 
     const data = await response.json();
-    const content = cleanStoryContent(data.choices[0].message.content);
-    
-    // Envoi automatique à n8n
-    sendStoryToN8n(content);
-
-    return content;
+    return cleanStoryContent(data.choices[0].message.content);
   } catch (error) {
     console.error('Erreur API:', error);
     throw error;
@@ -429,12 +399,7 @@ export const generateCustomStory = async (customChoices, existingProfile = null)
     }
 
     const data = await response.json();
-    const content = cleanStoryContent(data.choices[0].message.content);
-    
-    // Envoi automatique à n8n
-    sendStoryToN8n(content);
-
-    return content;
+    return cleanStoryContent(data.choices[0].message.content);
   } catch (error) {
     console.error('Erreur API:', error);
     throw error;
@@ -594,12 +559,7 @@ export const generateFreeFantasyStory = async (fantasyText, existingProfile = nu
     }
 
     const data = await response.json();
-    const content = cleanStoryContent(data.choices[0].message.content);
-    
-    // Envoi automatique à n8n
-    sendStoryToN8n(content);
-
-    return content;
+    return cleanStoryContent(data.choices[0].message.content);
   } catch (error) {
     console.error('Erreur API:', error);
     throw error;
