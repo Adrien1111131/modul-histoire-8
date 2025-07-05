@@ -106,11 +106,19 @@ export const generateStory = async (userProfile) => {
         'Authorization': `Bearer ${GROK_API_KEY}`
       },
       body: JSON.stringify({
-        messages,
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt
+          },
+          {
+            role: "user",
+            content: userPrompt
+          }
+        ],
         model: "grok-3-latest",
         stream: false,
-        temperature: randomTemperature,
-        seed: randomSeed
+        temperature: 0
       })
     });
 
@@ -206,11 +214,19 @@ export const generateRandomStory = async (randomStoryData) => {
         'Authorization': `Bearer ${GROK_API_KEY}`
       },
       body: JSON.stringify({
-        messages,
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt
+          },
+          {
+            role: "user",
+            content: userPrompt
+          }
+        ],
         model: "grok-3-latest",
         stream: false,
-        temperature: randomTemperature,
-        seed: randomSeed
+        temperature: 0
       })
     });
 
